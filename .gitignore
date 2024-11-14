@@ -1,0 +1,49 @@
+# Xcode
+.DS_Store
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+*.xccheckout
+*.xcuserstate
+*.xcworkspace
+xcuserdata/
+
+# Derived Data and Build Products
+DerivedData/
+Build/
+*.o
+*.d
+*.dt
+*.o.cmd
+
+# Swift Package Manager
+/.build/
+/Packages
+
+# Cocoapods
+Pods/
+
+# Carthage
+Carthage/Build/
+Carthage/Checkouts/
+
+# Fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots
+fastlane/test_output
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots
+
+# Provisioning Profiles and Certificates
+*.mobileprovision
+*.cer
+*.crt
+*.pem
+
