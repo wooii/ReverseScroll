@@ -1,11 +1,11 @@
-// AppDelegate.swift
 import Cocoa
+import ServiceManagement
 
 class AppDelegate: NSObject, NSApplicationDelegate {
     private var scrollHandler: ScrollHandler?
     private var permissionTimer: Timer?
-    private let maxChecks = 10  // Maximum number of permission checks (10 seconds)
-
+    private let maxChecks = 10
+    
     func applicationDidFinishLaunching(_ notification: Notification) {
         NSApp.setActivationPolicy(.prohibited)
         requestAccessibilityPermissions()
@@ -33,6 +33,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             checkCount += 1
             if AXIsProcessTrusted() {
                 timer.invalidate()
+                addAppToLoginItems()
                 scrollHandler = ScrollHandler()
             } else if checkCount >= self.maxChecks {
                 timer.invalidate()
@@ -42,4 +43,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
     }
 
+    private func addAppToLoginItems() {
+        do {
+            try SMAppService.mainApp.register()
+            print("App successfully added to login items.")
+        } catch {
+            print("Failed to add app to login items: \(error.localizedDescription)")
+        }
+    }
 }
