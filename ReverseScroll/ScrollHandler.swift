@@ -53,7 +53,7 @@ class ScrollHandler {
         guard type == .scrollWheel, let refcon = refcon else {
             return Unmanaged.passUnretained(event)
         }
-        let ScrollHandler = Unmanaged<ScrollHandler>.fromOpaque(refcon).takeUnretainedValue()
-        return ScrollHandler.handleScrollEvent(event: event)
+        let handler = Unmanaged<ScrollHandler>.fromOpaque(refcon).takeUnretainedValue()
+        return handler.handleScrollEvent(event: event)
     }
 }
